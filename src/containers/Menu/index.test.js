@@ -24,3 +24,33 @@ describe("When Menu is created", () => {
     });
   });
 });
+
+test(`should navigate to "Nos services" when link is clicked`, () => {
+  const { getByText } = render(<a href="#nos-services">Nos services</a>);
+  const link = getByText("Nos services");
+  fireEvent.click(link);
+  expect(screen.getByText("Nos services").closest("a")).toHaveAttribute(
+    "href",
+    "#nos-services"
+  );
+});
+test(`should navigate to "Nos réalisations" when link is clicked`, () => {
+  const { getByText } = render(
+    <a href="#nos-realisations">Nos réalisations</a>
+  );
+  const link = getByText("Nos réalisations");
+  fireEvent.click(link);
+  expect(screen.getByText("Nos réalisations").closest("a")).toHaveAttribute(
+    "href",
+    "#nos-realisations"
+  );
+});
+test(`should navigate to "Notre équipe" when link is clicked`, () => {
+  const { getByText } = render(<a href="#notre-equipe">Notre équipe</a>);
+  const link = getByText("Notre équipe");
+  fireEvent.click(link);
+  expect(screen.getByText("Notre équipe").closest("a")).toHaveAttribute(
+    "href",
+    "#notre-equipe"
+  );
+});

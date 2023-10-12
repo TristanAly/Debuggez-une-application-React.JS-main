@@ -6,7 +6,8 @@ import Button, { BUTTON_TYPES } from "../../components/Button";
 
 const mockContactApi = () =>
   new Promise((resolve) => {
-    setTimeout(resolve, 1000);
+    // reduction du timeout a 950ms, car on a un interval de 50ms par défault et un timeout de 1000ms donc on peut tester le code avec un interval de 950ms max
+    setTimeout(resolve, 950);
   });
 
 const Form = ({ onSuccess, onError }) => {
