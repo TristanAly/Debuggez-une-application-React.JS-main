@@ -1,5 +1,10 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "./index";
+import EventList from "../../containers/Events";
+import PeopleCard from "../../components/PeopleCard";
+import EventCard from "../../components/EventCard";
+import Logo from "../../components/Logo";
+import Icon from "../../components/Icon";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
@@ -28,15 +33,28 @@ describe("When Form is created", () => {
 
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.findByText("Nos réalisations");
+    screen.findByText("Categories");
+    expect(EventList).toBeInTheDocument;
   });
   it("a list a people is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.findByText("Notre équipe");
+    screen.findByText(
+      "Une équipe d’experts dédiés à l’ogranisation de vos événements"
+    );
+    expect(PeopleCard).toBeInTheDocument;
   });
   it("a footer is displayed", () => {
-    // to implement
+    screen.findByText("Notre derniére prestation");
+    screen.findByText("Contactez-nous");
+    expect(Logo).toBeInTheDocument;
+    expect(Icon).toBeInTheDocument;
   });
   it("an event card, with the last event, is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.findByText("Notre derniére prestation");
+    expect(EventCard).toBeInTheDocument;
   });
 });
