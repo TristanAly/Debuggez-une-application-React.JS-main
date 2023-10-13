@@ -8,8 +8,8 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    // changement de sens du trie du plus ancien au plus récent
-    new Date(evtB.date) > new Date(evtA.date) ? 1 : -1
+    // changement de sens du trie du dans l'ordre décroisant
+    new Date(evtB.date) < new Date(evtA.date) ? 1 : -1
   );
   const nextCard = () => {
     if (byDateDesc !== undefined) {
